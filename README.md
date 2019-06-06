@@ -21,5 +21,5 @@ Inspired by the Quiz App in [gophercises](https://gophercises.com/) and the idea
  
     - For the command list: ``` goCards --h --help ```    
     
-*If ``` %GOPATH/bin/ ``` is in your path you should be able to use those commands anywhere in your terminal*
+*If ``` $GOPATH/bin/ ``` is in your path you should be able to use those commands anywhere in your terminal*
  
