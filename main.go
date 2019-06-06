@@ -4,12 +4,15 @@ import (
 	"flag"
 	"fmt"
 	"goCards/cards"
+	"os"
+)
+
+var (
+	playCSV = flag.String("play", "", "Path for CSV file to start practicing ")
+	lookCSV = flag.String("look", "", "Path for CSV file and see how the cards are organized")
 )
 
 func main() {
-
-	playCSV := flag.String("play", "", "Path for CSV file to start practicing ")
-	lookCSV := flag.String("look", "", "Path for CSV file and see how the cards are organized")
 
 	flag.Parse()
 
@@ -26,9 +29,7 @@ func main() {
 
 
 	} else {
-
-		fmt.Println("Pass a valid path for a CSV file!")
-
+		flag.Usage()
+		os.Exit(1)
 	}
-
 }
