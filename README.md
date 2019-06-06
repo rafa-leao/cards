@@ -1,4 +1,4 @@
-# Flash Cards
+# goCards
 
 CLI made with the Go standard library to practice flash cards.
 
