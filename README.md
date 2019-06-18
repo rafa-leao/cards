@@ -1,6 +1,6 @@
 # goCards
 
-CLI made with the Go standard library to practice flash cards.
+CLI made with the Go standard library to practice flash cards with CSV files.
 
 Inspired by the Quiz App in [gophercises](https://gophercises.com/) and the idea from this repo of [app ideas](https://github.com/florinpop17/app-ideas/blob/master/Projects/FlashCards-App.md)
 
@@ -8,18 +8,23 @@ Inspired by the Quiz App in [gophercises](https://gophercises.com/) and the idea
 
 **Be sure you have Go properly installed.**
 
-1. Copy the repo in %GOPATH/src:
+1. Get the repo:
 
-    - ```git clone https://github.com/rafa-leao/goCards```
+    - ```go get github.com/rafa-leao/goCards```
 
-2. Go in the repo, open your terminal:
-
-    - ``` go install ``` 
+2. Check if ```$GOPATH/bin``` is in your path. If so you can use the app anywhere;
     
- 3. Type commands:
-    - The commands schema: ``` goCards --flag value ```
+3. The commands schema:
+
+    - ``` goCards --flag value ```
+    - ``` goCards --flag=value ```
+    - ``` goCards -flag value ```
+    - ``` goCards -flag=value ```
  
-    - For the command list: ``` goCards --h --help ```    
+4. The command list: 
+
+    - To see the front and back face of your cards: ``` goCards --look file.csv ```      
+    - To start practicing with your cards: ``` goCards --play file.csv ```
     
-*If ``` $GOPATH/bin/ ``` is in your path you should be able to use those commands anywhere in your terminal*
+    - And for help: ``` goCards --h --help ```
  
