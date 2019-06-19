@@ -12,13 +12,13 @@ type deckFace struct {
 	back  string
 }
 
-func createSliceOfCards(cardsToPractice [][]string) (cards []deckFace) {
+func CreateSliceOfCards(csvFile [][]string) (cardsToPractice []deckFace) {
 
-	cards = make([]deckFace, len(cardsToPractice))
+	cardsToPractice = make([]deckFace, len(csvFile))
 
-	for i, card := range cardsToPractice {
+	for i, card := range csvFile {
 
-		cards[i] = deckFace{
+		cardsToPractice[i] = deckFace{
 			front: card[0],
 			back:  card[1],
 		}
@@ -46,18 +46,18 @@ func cardInCardsAnswered(card deckFace, cardsAnswered []deckFace) bool {
 
 }
 
-func Practice(cardsToPractice [][]string) {
+func Practice(csvFile [][]string) {
 
-	cards := createSliceOfCards(cardsToPractice)
+	cardsToPractice := CreateSliceOfCards(csvFile)
 
 	var (
 		card            deckFace
 		cardsAnswered []deckFace
 	)
 
-	for totalOfCards := len(cards); totalOfCards > len(cardsAnswered); {
+	for totalOfCards := len(cardsToPractice); totalOfCards > len(cardsAnswered); {
 
-		card = cards[randomNumber(len(cardsToPractice))]
+		card = cardsToPractice[randomNumber(len(cardsToPractice))]
 
 		if !cardInCardsAnswered(card, cardsAnswered) {
 
