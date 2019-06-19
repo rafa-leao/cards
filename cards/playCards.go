@@ -12,7 +12,7 @@ type deckFace struct {
 	back  string
 }
 
-func createCards(cardsToPractice [][]string) (cards []deckFace) {
+func createSliceOfCards(cardsToPractice [][]string) (cards []deckFace) {
 
 	cards = make([]deckFace, len(cardsToPractice))
 
@@ -48,7 +48,7 @@ func cardInCardsAnswered(card deckFace, cardsAnswered []deckFace) bool {
 
 func Practice(cardsToPractice [][]string) {
 
-	cards := createCards(cardsToPractice)
+	cards := createSliceOfCards(cardsToPractice)
 
 	var (
 		card            deckFace
