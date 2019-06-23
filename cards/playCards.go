@@ -33,7 +33,8 @@ func Practice(csvFile [][]string) {
 			fmt.Scan(&answer)
 
 			if answer != card.backFace {
-				fmt.Println("Wrong answer. Do not give up! Try again!")
+				fmt.Printf("Wrong answer. Do not give up! You made %d of %d.\n", len(cardsAnswered), len(cardsToPractice))
+				fmt.Println("Try again or learn your deck of cards with the '--learn' command!")
 				os.Exit(1)
 			} else {
 				cardsAnswered = append(cardsAnswered, card)
