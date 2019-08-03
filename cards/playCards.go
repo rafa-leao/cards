@@ -7,67 +7,34 @@ import (
 	"time"
 )
 
-type deckFace struct {
-	front string
-	back  string
-}
-
-func createCards(cardsToPractice [][]string) (cards []deckFace) {
-
-	cards = make([]deckFace, len(cardsToPractice))
-
-	for i, card := range cardsToPractice {
-
-		cards[i] = deckFace{
-			front: card[0],
-			back:  card[1],
-		}
-	}
-
-	return
-}
-
 func randomNumber(number int) int {
 
 	return rand.New(rand.NewSource(time.Now().UnixNano())).Intn(number)
 
 }
 
-func cardInCardsAnswered(card deckFace, cardsAnswered []deckFace) bool {
-
-	for _, cardAnswered := range cardsAnswered {
-
-		if card == cardAnswered {
-			return true
-		}
-	}
-
-	return false
-
-}
-
-func Practice(cardsToPractice [][]string) {
-
-	cards := createCards(cardsToPractice)
+func Practice(csvFile [][]string) {
 
 	var (
-		card            deckFace
-		cardsAnswered []deckFace
+		cardsToPractice []Card = CreateSliceOfCards(csvFile)
+		cardsAnswered   []Card
+		card              Card
 	)
 
-	for totalOfCards := len(cards); totalOfCards > len(cardsAnswered); {
+	for totalOfCards := len(cardsToPractice); totalOfCards > len(cardsAnswered); {
 
-		card = cards[randomNumber(len(cardsToPractice))]
+		card = cardsToPractice[randomNumber(len(cardsToPractice))]
 
-		if !cardInCardsAnswered(card, cardsAnswered) {
+		if !IsCardInSliceOfCards(card, cardsAnswered) {
 
-			fmt.Printf("%s = ", card.front)
+			fmt.Printf("%s = ", card.frontFace)
 
 			var answer string
 			fmt.Scan(&answer)
 
-			if answer != card.back {
-				fmt.Println("Wrong answer. Do not give up! Try again!")
+			if answer != card.backFace {
+				fmt.Printf("Wrong answer. Do not give up! You made %d of %d.\n", len(cardsAnswered), len(cardsToPractice))
+				fmt.Println("Try again or learn your deck of cards with the '--learn' command!")
 				os.Exit(1)
 			} else {
 				cardsAnswered = append(cardsAnswered, card)
