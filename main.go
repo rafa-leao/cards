@@ -17,26 +17,28 @@ func main() {
 
 	flag.Parse()
 
-	if *learnCSV != ""{
+	switch {
 
-		openedCSV := cards.ReadCSV(*learnCSV)
-		cards.Learn(openedCSV)
+		case *learnCSV != "":
 
-	} else if *playCSV != "" {
+			openedCSV := cards.ReadCSV(*learnCSV)
+			cards.Learn(openedCSV)
 
-		openedCSV := cards.ReadCSV(*playCSV)
-		cards.Practice(openedCSV)
+		case *playCSV != "":
 
-	} else if *lookCSV != "" {
+			openedCSV := cards.ReadCSV(*playCSV)
+			cards.Practice(openedCSV)
 
-		for i := range cards.ReadCSV(*lookCSV) {
+		case *lookCSV != "":
 
-			fmt.Println(cards.ReadCSV(*lookCSV)[i])
+			for i := range cards.ReadCSV(*lookCSV) {
 
-		}
+				fmt.Println(cards.ReadCSV(*lookCSV)[i])
+			}
 
-	} else {
-		flag.Usage()
-		os.Exit(1)
+		default:
+			flag.Usage()
+			os.Exit(1)
 	}
+
 }
