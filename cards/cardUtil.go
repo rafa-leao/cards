@@ -1,9 +1,13 @@
 package cards
 
+// types
+
 type Card struct {
 	frontFace string
 	backFace  string
 }
+
+// functions
 
 func CreateSliceOfCards(csvFile [][]string) (cardsToPractice []Card) {
 
@@ -30,5 +34,4 @@ func IsCardInSliceOfCards(card Card, cardsAnswered []Card) bool {
 	}
 
 	return false
-
 }
