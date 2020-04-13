@@ -1,4 +1,4 @@
-package cards
+package main
 
 // types
 
@@ -15,7 +15,7 @@ func CreateSliceOfCards(csvFile [][]string) (cardsToPractice []Card) {
 
 	for i, card := range csvFile {
 
-		cardsToPractice[i] = Card {
+		cardsToPractice[i] = Card{
 			frontFace: card[0],
 			backFace:  card[1],
 		}

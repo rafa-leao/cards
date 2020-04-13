@@ -1,4 +1,4 @@
-package cards
+package main
 
 import (
 	"fmt"
@@ -18,7 +18,7 @@ func Practice(csvFile [][]string) {
 	var (
 		cardsToPractice []Card = CreateSliceOfCards(csvFile)
 		cardsAnswered   []Card
-		card              Card
+		card            Card
 	)
 
 	for totalOfCards := len(cardsToPractice); totalOfCards > len(cardsAnswered); {

@@ -1,4 +1,4 @@
-package cards
+package main
 
 import (
 	"fmt"
@@ -8,10 +8,10 @@ import (
 func Learn(csvFile [][]string) {
 
 	var (
-		cardsToLearn 	[]Card = CreateSliceOfCards(csvFile)
+		cardsToLearn    []Card = CreateSliceOfCards(csvFile)
 		cardsLearned    []Card
 		cardsNotLearned []Card
-		card 		      Card
+		card            Card
 	)
 
 	if len(cardsToLearn) < 5 {
@@ -19,7 +19,7 @@ func Learn(csvFile [][]string) {
 		os.Exit(1)
 	}
 
-	for ; len(cardsToLearn) > len(cardsLearned); {
+	for len(cardsToLearn) > len(cardsLearned) {
 
 		for i := range cardsToLearn {
 
@@ -38,7 +38,7 @@ func Learn(csvFile [][]string) {
 			}
 		}
 
-		if cardsNotLearned != nil{
+		if cardsNotLearned != nil {
 
 			fmt.Println("You still don't know some cards")
 			fmt.Println("Let's try those cards again!")

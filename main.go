@@ -4,8 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-
-	"github.com/rafa-leao/goCards/cards"
 )
 
 var (
@@ -22,19 +20,19 @@ func main() {
 
 	case *learnCSV != "":
 
-		openedCSV := cards.ReadCSV(*learnCSV)
-		cards.Learn(openedCSV)
+		openedCSV := ReadCSV(*learnCSV)
+		Learn(openedCSV)
 
 	case *playCSV != "":
 
-		openedCSV := cards.ReadCSV(*playCSV)
-		cards.Practice(openedCSV)
+		openedCSV := ReadCSV(*playCSV)
+		Practice(openedCSV)
 
 	case *lookCSV != "":
 
-		for i := range cards.ReadCSV(*lookCSV) {
+		for i := range ReadCSV(*lookCSV) {
 
-			fmt.Println(cards.ReadCSV(*lookCSV)[i])
+			fmt.Println(ReadCSV(*lookCSV)[i])
 		}
 
 	default:
