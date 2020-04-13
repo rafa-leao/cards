@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"goCards/cards"
+	"github.com/rafa-leao/goCards/cards"
 	"os"
 )
 
